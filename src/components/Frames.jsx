@@ -1,10 +1,10 @@
 import { Button } from "@material-tailwind/react";
 import { DownloadCloud } from "lucide-react";
 import React from "react";
-import { useToSvg } from "@hugocxl/react-to-image";
+import { useToJpeg, useToSvg } from "@hugocxl/react-to-image";
 
 export default function Frames(props) {
-  const [state, convertToSvg, ref] = useToSvg({
+  const [state, convertToSvg, ref] = useToJpeg({
     onSuccess: (data) => {
       const link = document.createElement("a");
       link.download = `${props.data.prenom}-devfest-kivu-2024.svg`;
@@ -14,7 +14,7 @@ export default function Frames(props) {
   });
 
   // SVG for profile
-  const [stateProfile, convertToSvgProfile, refProfile] = useToSvg({
+  const [stateProfile, convertToSvgProfile, refProfile] = useToJpeg({
     onSuccess: (data) => {
       const link = document.createElement("a");
       link.download = `${props.data.prenom}-profile.svg`;
