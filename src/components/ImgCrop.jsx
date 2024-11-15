@@ -48,9 +48,11 @@ export default function ImgCrop(props) {
 
   return (
     <div>
-      <label htmlFor="image-upload" className="cursor-pointer">
-        <Button>Choisir une image</Button>
-      </label>
+      <Button>
+        <label htmlFor="image-upload" className="cursor-pointer">
+          Choisir une image
+        </label>
+      </Button>
       <input
         id="image-upload"
         type="file"
