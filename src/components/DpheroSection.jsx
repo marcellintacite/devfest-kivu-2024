@@ -14,7 +14,7 @@ const DpHeroSection = () => {
     <section
       className="relative h-[50vh] lg:h-[70vh] bg-cover bg-center text-white flex flex-col items-center justify-center"
       style={{
-        backgroundImage: "url('/theme-bg.png')", // Remplace par l'URL de ton image
+        backgroundImage: "url('/theme-bg.jpeg')", // Remplace par l'URL de ton image
       }}
     >
       {/* Overlay */}

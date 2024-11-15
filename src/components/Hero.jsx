@@ -9,7 +9,7 @@ const HeroSection = () => {
     <section
       className="flex flex-col items-center justify-center h-[80vh] text-center px-4 bg-cover bg-center bg-no-repeat relative"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('./bg.jpg')`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('./bg.jpeg')`,
       }}
     >
       {/* Main Title */}

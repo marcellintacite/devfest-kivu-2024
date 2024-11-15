@@ -16,13 +16,14 @@ export default function ImgCrop(props) {
   const [coordinates, setCoordinates] = useState(null);
   const [cropperRef, setCropperRef] = useState(null);
 
-  const handleFile = async () => {
-    const [fileHandle] = await window.showOpenFilePicker();
-    const file = await fileHandle.getFile();
-    const fileUrl = URL.createObjectURL(file);
-    setTempoImgUrl(fileUrl);
-    props.setImgUrl(fileUrl); // Set the default image
-    setOpen(true);
+  const handleFileInput = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const fileUrl = URL.createObjectURL(file);
+      setTempoImgUrl(fileUrl);
+      props.setImgUrl(fileUrl); // Set the default image
+      setOpen(true);
+    }
   };
 
   const onChange = (cropper) => {
@@ -47,10 +48,19 @@ export default function ImgCrop(props) {
 
   return (
     <div>
-      <Button onClick={handleFile}>Sélectionner une image</Button>
+      <label htmlFor="image-upload" className="cursor-pointer">
+        <Button>Choisir une image</Button>
+      </label>
+      <input
+        id="image-upload"
+        type="file"
+        accept="image/*"
+        onChange={handleFileInput}
+        className="hidden"
+      />
 
       <Dialog open={open} handler={handleOpen}>
-        <DialogHeader>Image Cropper</DialogHeader>
+        <DialogHeader>Recadrer l'image</DialogHeader>
         <DialogBody>
           {temporalImgUrl && (
             <div className="h-92">
@@ -78,10 +88,10 @@ export default function ImgCrop(props) {
             onClick={handleOpen}
             className="mr-1"
           >
-            <span>Cancel</span>
+            <span>Annuler</span>
           </Button>
           <Button variant="gradient" color="amber" onClick={handleConfirm}>
-            <span>Confirm</span>
+            <span>Confirmer</span>
           </Button>
         </DialogFooter>
       </Dialog>
