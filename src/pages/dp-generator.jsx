@@ -2,6 +2,7 @@ import { useState } from "react";
 import DpHeroSection from "../components/DpheroSection";
 import ProfileForm from "../components/Form";
 import Frames from "../components/Frames";
+import Footer from "../components/Footer";
 
 export default function DpGenerator() {
   const [data, setData] = useState(null);
@@ -15,6 +16,7 @@ export default function DpGenerator() {
         </>
       )}
       {data && <Frames data={data} setData={setData} />}
+      <Footer />
     </div>
   );
 }

@@ -34,7 +34,7 @@ const ProfileForm = (props) => {
   };
 
   return (
-    <section id="form-section" className="py-16 px-4 min-h-screen">
+    <section id="form-section" className="py-16 px-4 min-h-[60vh]">
       <div className="max-w-4xl mx-auto text-center">
         {/* Titre */}
         <h2 className="text-3xl font-bold mb-4">
