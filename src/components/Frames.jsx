@@ -3,24 +3,33 @@ import { DownloadCloud } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 
 import { domToPng } from "modern-screenshot";
+import CardFrame from "./CardFrame";
 export default function Frames(props) {
   const afficheRef = useRef(null);
+  const affiche2Ref = useRef(null);
   const profileRef = useRef(null);
+  const profile2Ref = useRef(null);
   const [loading, setLoading] = React.useState(false);
   const [afficheBg, setAfficheBg] = useState("/web-theme.svg");
+  const [affiche2Bg, setAffiche2bg] = useState("/web-theme-2.svg");
 
   useEffect(() => {
     // update the bg depending on props.data.specialisation / ai/mobile/web/could/no
     if (props.data.specialisation === "ai") {
       setAfficheBg("/ai-theme.svg");
+      setAffiche2bg("/ai-theme2.svg");
     } else if (props.data.specialisation === "mobile") {
       setAfficheBg("/mobile-theme.svg");
+      setAffiche2bg("/mobile-theme2.svg");
     } else if (props.data.specialisation === "cloud") {
       setAfficheBg("/cloud-theme.svg");
+      setAffiche2bg("/cloud-theme2.svg");
     } else if (props.data.specialisation === "web") {
       setAfficheBg("/web-theme.svg");
+      setAffiche2bg("/web-theme-2.svg");
     } else {
       setAfficheBg("/web-theme.svg");
+      setAffiche2bg("/web-theme-2.svg");
     }
   });
 
@@ -70,33 +79,21 @@ export default function Frames(props) {
       {/* Première image avec cadre au premier plan */}
       <div className="bg-white p-4 rounded-md flex-1">
         <h1 className="text-3xl font-bold">Affiche</h1>
-        <div className="flex justify-center items-center">
-          <div className="container p-2 mt-3 relative" ref={afficheRef}>
-            {/* Cadre */}
-            <img
-              src={afficheBg}
-              className="w-full h-full z-10 relative"
-              alt="Cadre"
-            />
-            <h1 className="absolute z-40 lg:bottom-16 bottom-6 lg:text-4xl w-52 left-8 lg:w-[60%] lg:left-10">
-              <strong>{props.data.prenom}</strong> sera au Devfest Kivu 2024
-            </h1>
-            {/* Image */}
-            <img
-              src={props.data.imgUrl}
-              className="absolute inset-0 w-full h-full object-cover z-0"
-              alt="Image utilisateur"
-            />
-          </div>
+        <div className="grid grid-cols-1  gap-4 mt-3">
+          <CardFrame
+            data={props.data}
+            background={afficheBg}
+            ref={afficheRef}
+            onDownload={convertToPng}
+          />
+          <CardFrame
+            data={props.data}
+            background={affiche2Bg}
+            ref={afficheRef}
+            onDownload={convertToPng}
+            second={true}
+          />
         </div>
-        <Button
-          className="flex gap-3 items-center mt-3"
-          onClick={() => convertToPng(afficheRef.current)}
-          loading={loading}
-        >
-          Télécharger
-          <DownloadCloud className="w-4 h-4" />
-        </Button>
       </div>
 
       {/* Deuxième image avec cadre circulaire */}
@@ -109,6 +106,37 @@ export default function Frames(props) {
           {/* Cadre */}
           <img
             src="./profile2.svg"
+            className="w-full h-full z-20 relative"
+            alt="Cadre"
+          />
+          {/* Image with `object-contain` to fit inside the circle */}
+          <img
+            src={props.data.imgUrl}
+            className="absolute inset-0 w-full h-full object-contain z-10 rounded-full"
+            alt="Image utilisateur"
+          />
+        </div>
+
+        <div className="flex justify-center items-center">
+          <Button
+            className="flex gap-3 items-center mt-3"
+            onClick={() => convertToPng(profileRef.current)}
+            loading={loading}
+          >
+            Télécharger
+            <DownloadCloud className="w-4 h-4" />
+          </Button>
+        </div>
+      </div>
+      <div className="bg-white p-4 rounded-md flex-1">
+        <h1 className="text-3xl font-bold">Profile 2</h1>
+        <div
+          className="container p-2 mt-3 relative bg-transparent overflow-hidden"
+          ref={profileRef}
+        >
+          {/* Cadre */}
+          <img
+            src="./profile.svg"
             className="w-full h-full z-20 relative"
             alt="Cadre"
           />
