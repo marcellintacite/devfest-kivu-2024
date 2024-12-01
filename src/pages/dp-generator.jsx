@@ -10,6 +10,7 @@ export default function DpGenerator() {
   const [data, setData] = useState(null);
   const handleDelete = () => {
     setData(null);
+    window.scrollTo(0, 0, "smooth");
   };
   console.log(data);
   return (
