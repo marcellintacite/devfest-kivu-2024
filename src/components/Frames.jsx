@@ -76,26 +76,6 @@ export default function Frames(props) {
 
   return (
     <div className="w-full p-4 flex gap-5 flex-col lg:flex-row">
-      {/* Première image avec cadre au premier plan */}
-      <div className="bg-white p-4 rounded-md flex-1">
-        <h1 className="text-3xl font-bold">Affiche</h1>
-        <div className="grid grid-cols-1  gap-4 mt-3">
-          <CardFrame
-            data={props.data}
-            background={afficheBg}
-            ref={afficheRef}
-            onDownload={convertToPng}
-          />
-          <CardFrame
-            data={props.data}
-            background={affiche2Bg}
-            ref={afficheRef}
-            onDownload={convertToPng}
-            second={true}
-          />
-        </div>
-      </div>
-
       {/* Deuxième image avec cadre circulaire */}
       <div className="bg-white p-4 rounded-md flex-1">
         <h1 className="text-3xl font-bold">Profile</h1>
@@ -157,6 +137,25 @@ export default function Frames(props) {
             Télécharger
             <DownloadCloud className="w-4 h-4" />
           </Button>
+        </div>
+      </div>
+      {/* Première image avec cadre au premier plan */}
+      <div className="bg-white p-4 rounded-md flex-1">
+        <h1 className="text-3xl font-bold">Affiche</h1>
+        <div className="grid grid-cols-1  gap-4 mt-3">
+          <CardFrame
+            data={props.data}
+            background={afficheBg}
+            ref={afficheRef}
+            onDownload={convertToPng}
+          />
+          <CardFrame
+            data={props.data}
+            background={affiche2Bg}
+            ref={afficheRef}
+            onDownload={convertToPng}
+            second={true}
+          />
         </div>
       </div>
     </div>

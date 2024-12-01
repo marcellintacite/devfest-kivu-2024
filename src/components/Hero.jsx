@@ -1,6 +1,6 @@
 import { Button } from "@material-tailwind/react";
-import { Brush, ExternalLink } from "lucide-react";
-import React from "react";
+import { Brush } from "lucide-react";
+
 import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {

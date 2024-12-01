@@ -7,6 +7,8 @@ module.exports = withMT({
   theme: {
     fontFamily: {
       default: ["Geist Mono", "sans-serif"],
+      sans: ["Geist Mono", "sans-serif"],
+      serif: ["Geist Mono", "serif"],
     },
 
     extend: {

@@ -47,8 +47,12 @@ export function NavbarWithSimpleLinks() {
   };
 
   return (
-    <Navbar color="white" fullWidth className="shadow-sm ">
-      <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
+    <Navbar
+      color="white"
+      fullWidth
+      className="shadow-sm sticky top-0 z-50 h-max max-w-full bg-white"
+    >
+      <div className="container mx-auto flex items-center justify-between  text-blue-gray-900">
         <Link to={"/"}>
           <img src="/logo.png" alt="logo" className="md:h-12 h-9" />
         </Link>

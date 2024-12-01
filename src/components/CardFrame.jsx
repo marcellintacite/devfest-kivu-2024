@@ -24,12 +24,22 @@ const CardFrame = ({ data, background, onDownload, second, loading }) => {
         <h1
           className={
             second
-              ? "absolute z-40 lg:bottom-16 bottom-12 lg:text-4xl w-52 right-10 lg:w-[60%] lg:left-10"
-              : "absolute z-40 lg:bottom-16 bottom-6 lg:text-4xl w-52 left-8 lg:w-[60%] lg:left-10"
+              ? "absolute z-40 lg:bottom-16 bottom-8 lg:text-4xl w-52 -right-16 lg:w-[60%] lg:left-10"
+              : "absolute z-40 lg:bottom-16 bottom-5 lg:text-4xl w-52 left-8 lg:w-[60%] lg:left-10"
           }
         >
-          <strong className="uppercase">{data.prenom}</strong> sera au Devfest
-          Kivu 2024
+          {!second ? (
+            <>
+              <p className="text-sm w-10/12">
+                <strong className="uppercase">{data.prenom}</strong> sera au
+                Devfest Kivu 2024
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="text-sm">{data.prenom} | 2024</p>
+            </>
+          )}
         </h1>
         {/* Image */}
         <img

@@ -1,5 +1,5 @@
 import { Button, Input, Option, Select } from "@material-tailwind/react";
-import React, { useState } from "react";
+import { useState } from "react";
 import ImgCrop from "./ImgCrop";
 
 const ProfileForm = (props) => {
@@ -27,6 +27,7 @@ const ProfileForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Données du formulaire :", data);
+    window.scrollTo(0, 0, "smooth");
     props.setData({
       ...data,
       imgUrl,
@@ -72,6 +73,7 @@ const ProfileForm = (props) => {
                   placeholder="Votre prénom"
                   size="lg"
                   color="amber"
+                  maxLength={12}
                   className="w-full lg:w-64"
                   name="prenom"
                   value={data.prenom}
