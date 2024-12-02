@@ -10,7 +10,7 @@ export default function Home() {
     <div className="bg-primary-400">
       <HeroSection />
       <EventDetailsSection />
-      {/* <AgendaSection /> */}
+      <AgendaSection />
       <PresentationSection />
 
       <Footer />
